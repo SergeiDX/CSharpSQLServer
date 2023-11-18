@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VideojuegosCRUD.Models.Venta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVenta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVenta)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVenta">Edit</a> |
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdVenta">Details</a> |
+                <a asp-action="Delete" class="btn btn-delete" asp-route-id="@item.IdVenta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
